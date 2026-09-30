@@ -1,59 +1,114 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task Manager API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel 12 API for creating and managing tasks. Tasks can be listed, created, viewed, updated, and deleted. The project uses a repository interface to access task data and a Laravel API resource to shape task responses.
 
-## About Laravel
+## Requirements
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP 8.2 or later
+- Composer
+- SQLite (the default database configuration) or another database supported by Laravel
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Setup
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Run these commands from the project directory in PowerShell:
 
-## Learning Laravel
+```powershell
+composer install
+Copy-Item .env.example .env
+New-Item database/database.sqlite -ItemType File -Force
+php artisan key:generate
+php artisan migrate
+php artisan serve
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+The API is available at `http://localhost:8000`. The default `.env.example` uses SQLite. If you use a different database, update the `DB_*` values in `.env` before running migrations.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Postman
 
-## Laravel Sponsors
+Import [`postman/Task Manager API.postman_collection.json`](postman/Task%20Manager%20API.postman_collection.json) into Postman. The collection has a `base_url` variable set to `http://localhost:8000` and a blank `token` variable.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The `/api/user` route requires a Sanctum bearer token. This API does not define a login or token-issuing route, so set the collection's `token` variable yourself before calling that endpoint.
 
-### Premium Partners
+## API routes
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+All routes are prefixed with `/api`.
 
-## Contributing
+| Method | Endpoint | Description | Authentication |
+| --- | --- | --- | --- |
+| `GET` | `/api/tasks` | List tasks | None |
+| `POST` | `/api/tasks` | Create a task | None |
+| `GET` | `/api/tasks/{id}` | Get one task | None |
+| `PUT` / `PATCH` | `/api/tasks/{id}` | Update a task | None |
+| `DELETE` | `/api/tasks/{id}` | Delete a task | None |
+| `GET` | `/api/user` | Get the authenticated user | Sanctum bearer token |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Create a task
 
-## Code of Conduct
+`title` is required and must be a string of at most 255 characters. `description` is optional and can be `null`.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```http
+POST /api/tasks
+Accept: application/json
+Content-Type: application/json
+```
 
-## Security Vulnerabilities
+```json
+{
+  "title": "Prepare project proposal",
+  "description": "Draft the proposal and share it with the team."
+}
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Update a task
 
-## License
+All update fields are optional. When provided, `title` must be a string of at most 255 characters, `description` must be a string or `null`, and `is_completed` must be a boolean.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```http
+PATCH /api/tasks/1
+Accept: application/json
+Content-Type: application/json
+```
+
+```json
+{
+  "is_completed": true
+}
+```
+
+### Example task response
+
+Task responses use the `TaskResource` fields inside the API response envelope:
+
+```json
+{
+  "success": true,
+  "message": "Task created successfully.",
+  "code": 201,
+  "data": {
+    "id": 1,
+    "title": "Prepare project proposal",
+    "description": "Draft the proposal and share it with the team.",
+    "is_completed": false
+  }
+}
+```
+
+Validation failures return HTTP `422` when the request asks for JSON. Missing tasks are reported as not found. Other task data errors use the API error response envelope.
+
+## Project structure
+
+- `routes/api.php` defines the API routes.
+- `app/Http/Controllers/Api/TaskController.php` handles task requests.
+- `app/Http/Requests/Api/Tasks/` contains create and update validation rules.
+- `app/Http/Resources/TaskResource.php` formats task data.
+- `app/Repositories/` contains the task repository and interface.
+- `app/Exceptions/RecordNotFoundException.php` represents a task lookup failure.
+- `database/migrations/` defines the tasks table.
+
+## Tests
+
+Run the Laravel test suite with:
+
+```powershell
+php artisan test
+```
