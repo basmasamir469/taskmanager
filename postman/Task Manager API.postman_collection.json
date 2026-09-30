@@ -1,0 +1,855 @@
+{
+  "info": {
+    "_postman_id": "e436154b-ce67-4fdc-b9e5-083ac9505fc4",
+    "name": "Task Manager API",
+    "description": "API routes defined in routes/api.php. The User request requires a Sanctum bearer token. No login route is defined in this API file.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15238837",
+    "_collection_link": "https://go.postman.co/collection/15238837-e436154b-ce67-4fdc-b9e5-083ac9505fc4?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "List tasks",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/tasks",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "List tasks",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/tasks",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 16:54:32 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Request completed successfully.\",\n  \"code\": 200,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"title\": \"Perferendis nemo id illo incidunt nisi doloremque dicta.\",\n      \"description\": \"Natus tenetur illo aliquid ea. Quam qui aut autem et sint. Vitae ut inventore ea veniam sed possimus quos. Aliquam ipsa facere iste.\",\n      \"is_completed\": true\n    },\n    {\n      \"id\": 2,\n      \"title\": \"Eaque eos autem et ipsa autem et.\",\n      \"description\": \"Minus sit voluptas omnis inventore tenetur. Odit rerum autem odit vel. Et doloribus ad ex enim quia molestiae doloremque. Ab ratione aperiam possimus porro a amet suscipit similique.\",\n      \"is_completed\": false\n    },\n    {\n      \"id\": 3,\n      \"title\": \"Dicta quia debitis libero qui nobis.\",\n      \"description\": \"Ut vero libero voluptatibus eligendi aut qui voluptas. Est harum nam fuga et animi. Ut facere ut dignissimos ullam nostrum doloremque. Accusamus velit laudantium aliquid nesciunt voluptatum impedit.\",\n      \"is_completed\": false\n    },\n    {\n      \"id\": 4,\n      \"title\": \"Nihil cum saepe saepe minus reprehenderit quod.\",\n      \"description\": \"Consequuntur perferendis illum temporibus voluptas quia quidem. Et sint nobis molestiae id architecto illo omnis architecto.\",\n      \"is_completed\": false\n    },\n    {\n      \"id\": 5,\n      \"title\": \"Numquam porro qui ut reiciendis.\",\n      \"description\": \"Et harum eligendi perspiciatis omnis quae dolor. Possimus rem autem est. Aut aut non itaque modi esse ea rerum. Ad sed fugit sit qui.\",\n      \"is_completed\": false\n    },\n    {\n      \"id\": 6,\n      \"title\": \"Quam voluptas quibusdam iste ut aspernatur voluptatem fugiat maxime.\",\n      \"description\": \"Minima dolorem inventore impedit quia amet. Aut quisquam ex eos distinctio magni esse. Deleniti iusto autem repellendus beatae.\",\n      \"is_completed\": false\n    },\n    {\n      \"id\": 7,\n      \"title\": \"Dolor animi minus eaque.\",\n      \"description\": \"Tenetur modi ex beatae. Id alias provident et facere molestiae ut quia. Voluptatum et quo excepturi fugit magnam.\",\n      \"is_completed\": false\n    },\n    {\n      \"id\": 8,\n      \"title\": \"Sit expedita iure esse aliquam.\",\n      \"description\": \"Quibusdam deserunt nisi accusantium cumque sit magni aut in. Possimus rerum quo quasi neque quae repellat voluptatem omnis. Consectetur delectus iusto accusantium minima est placeat asperiores. Pariatur expedita et esse et magnam perspiciatis.\",\n      \"is_completed\": false\n    },\n    {\n      \"id\": 9,\n      \"title\": \"Dignissimos ut est ipsum eos aut.\",\n      \"description\": \"Distinctio nesciunt sit ut et enim qui. Necessitatibus error voluptatem adipisci alias. Sed consequuntur illum voluptatem omnis quis. Tempora eos est ipsum doloremque occaecati.\",\n      \"is_completed\": true\n    },\n    {\n      \"id\": 10,\n      \"title\": \"Assumenda qui sint ex.\",\n      \"description\": \"Et laborum dolores iusto quo sed est. Dolores cum voluptatem illo dicta velit sit libero illo. Vero placeat dolores quia nihil qui et perspiciatis.\",\n      \"is_completed\": true\n    },\n    {\n      \"id\": 11,\n      \"title\": \"Prepare project proposal\",\n      \"description\": \"Draft the proposal and share it with the team.\",\n      \"is_completed\": false\n    },\n    {\n      \"id\": 12,\n      \"title\": \"Prepare project proposal\",\n      \"description\": \"Draft the proposal and share it with the team.\",\n      \"is_completed\": false\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"kkkk\",\n  \"desciption\": \"Draft the proposal and share it with the team.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/tasks",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Prepare project proposal\",\n  \"description\": \"Draft the proposal and share it with the team.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/tasks",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 16:48:47 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Task created successfully.\",\n  \"data\": {\n    \"id\": 12,\n    \"title\": \"Prepare project proposal\",\n    \"description\": \"Draft the proposal and share it with the team.\",\n    \"is_completed\": false\n  }\n}"
+            },
+            {
+              "name": "failed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"\",\n  \"description\": \"Draft the proposal and share it with the team.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/tasks",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 16:49:44 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"The title field is required.\",\n  \"errors\": {\n    \"title\": [\n      \"The title field is required.\"\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get task",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/tasks/11",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "11"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "failed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/tasks/19",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks",
+                    "19"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 16:55:47 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"message\": \"Task 19 was not found.\",\n  \"code\": 404\n}"
+            },
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/tasks/11",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks",
+                    "11"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 16:56:03 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Request completed successfully.\",\n  \"code\": 200,\n  \"data\": {\n    \"id\": 11,\n    \"title\": \"Prepare project proposal\",\n    \"description\": \"Draft the proposal and share it with the team.\",\n    \"is_completed\": false\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update task",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Prepare project proposal\",\n  \"description\": \"Draft the proposal, review it, and share it with the team.\",\n  \"is_completed\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/tasks/18",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "18"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Prepare project proposal\",\n  \"description\": \"Draft the proposal, review it, and share it with the team.\",\n  \"is_completed\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/tasks/11",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks",
+                    "11"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 16:57:06 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Task updated successfully.\",\n  \"code\": 200,\n  \"data\": {\n    \"id\": 1,\n    \"title\": \"Prepare project proposal\",\n    \"description\": \"Draft the proposal, review it, and share it with the team.\",\n    \"is_completed\": true\n  }\n}"
+            },
+            {
+              "name": "failed",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Prepare project proposal\",\n  \"description\": \"Draft the proposal, review it, and share it with the team.\",\n  \"is_completed\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/tasks/18",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks",
+                    "18"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 17:05:27 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"message\": \"No query results for model [App\\\\Models\\\\Task] 18\",\n  \"code\": 400\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete task",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/tasks/16",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "16"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/tasks/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 17:01:51 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Task deleted successfully.\",\n  \"code\": 200,\n  \"data\": null\n}"
+            },
+            {
+              "name": "failed",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/tasks/16",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "tasks",
+                    "16"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "server",
+                  "value": "nginx/1.25.2"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.32"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Sep 2026 17:28:14 GMT"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"message\": \"No query results for model [App\\\\Models\\\\Task] 16\",\n  \"code\": 400\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
